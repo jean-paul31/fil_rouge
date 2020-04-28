@@ -1,8 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a routerLink="blog" class="navbar-brand">mediaschool</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -10,7 +7,7 @@
         <a routerLink="auth/signup" class="navbar-brand">Créer un compte</a>
       </li>
       <li class="nav-item">
-        <a routerLink="auth/signin" class="navbar-brand">Connexion</a>
+        <a routerLink="auth/signin" class="navbar-brand" *ngIf="!isAuth">Connexion</a>
       </li>
       <li>
         <a (click)="onSignOut()"
@@ -19,6 +16,10 @@
       </li>
     </ul>
   </div>
+  <a routerLink="blog" class="navbar-brand">mediaschool</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 </nav>
 
 
