@@ -3,16 +3,17 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item" routerLinkActive="active" *ngIf="!isAuth">
         <a routerLink="auth/signup" class="navbar-brand">Créer un compte</a>
       </li>
-      <li class="nav-item">
-        <a routerLink="auth/signin" class="navbar-brand" *ngIf="!isAuth">Connexion</a>
+      <li class="nav-item" routerLinkActive="active" *ngIf="!isAuth">
+        <a routerLink="auth/signin" class="navbar-brand">Connexion</a>
       </li>
-      <li>
-        <a (click)="onSignOut()"
-            style="cursor: pointer"
-            *ngIf="isAuth">déconnexion</a>
+      <li class="nav-item" routerLinkActive="active" *ngIf="isAuth">
+        <a  routerLink="auth/signin"
+            class="navbar-brand"
+            (click)="onSignOut()"
+            style="cursor: pointer">déconnexion</a>
       </li>
     </ul>
   </div>

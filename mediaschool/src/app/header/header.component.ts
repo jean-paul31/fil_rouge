@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
           this.isAuth = false;
         }
       }
-    )
+    );
   }
 
   onSignOut(){

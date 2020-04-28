@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2">
-    <h2>Créer un compte</h2>
-    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <h2>Connexion</h2>
+    <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="email">Email</label>
         <input type="text"
@@ -19,7 +19,7 @@
       <button style="margin-top:5px"
               type="submit"
               class="btn btn-primary"
-              [disabled]="signUpForm.invalid">Connexion</button>
+              [disabled]="signInForm.invalid">Connexion</button>
     </form>
     <p class="text-danger"> {{errorMessage}} </p>
   </div>

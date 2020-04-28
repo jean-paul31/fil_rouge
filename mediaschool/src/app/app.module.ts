@@ -10,12 +10,15 @@ import { FormComponent } from './form/form.component';
 import { BlogComponent } from './blog/blog.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const appRoutes: Routes = [
   {path: 'auth/signup', component: SignupComponent},
   {path: 'auth/signin', component: SigninComponent},
   {path: 'header', component: HeaderComponent},
-  {path: 'blog', component: BlogComponent}
+  {path: 'blog', canActivate:[AuthGuardService], component: BlogComponent},
+  {path: '', redirectTo: 'blog', pathMatch: 'full'},
+  {path: '**', redirectTo: 'blog'}
 ]
 
 @NgModule({
