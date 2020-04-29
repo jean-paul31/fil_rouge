@@ -11,12 +11,20 @@ import { BlogComponent } from './blog/blog.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { AccountComponent } from './account/account.component';
+import { AddChildComponent } from './account/add-child/add-child.component';
+import { CanteenComponent } from './account/canteen/canteen.component';
+import { ChildrenListComponent } from './account/children-list/children-list.component';
+import { SingleChildComponent } from './account/single-child/single-child.component';
 
 const appRoutes: Routes = [
   {path: 'auth/signup', component: SignupComponent},
   {path: 'auth/signin', component: SigninComponent},
   {path: 'header', component: HeaderComponent},
   {path: 'blog', canActivate:[AuthGuardService], component: BlogComponent},
+  {path: 'account', canActivate:[AuthGuardService], component: AccountComponent},
+  {path: 'add-child', canActivate:[AuthGuardService], component: AddChildComponent},
+  {path: 'canteen', canActivate:[AuthGuardService], component: CanteenComponent},
   {path: '', redirectTo: 'blog', pathMatch: 'full'},
   {path: '**', redirectTo: 'blog'}
 ]
@@ -29,6 +37,11 @@ const appRoutes: Routes = [
     BlogComponent,
     SignupComponent,
     SigninComponent,
+    AccountComponent,
+    AddChildComponent,
+    CanteenComponent,
+    ChildrenListComponent,
+    SingleChildComponent,
 
   ],
   imports: [

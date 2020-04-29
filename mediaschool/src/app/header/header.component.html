@@ -15,6 +15,11 @@
             (click)="onSignOut()"
             style="cursor: pointer">déconnexion</a>
       </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="isAuth">
+        <a  routerLink="account"
+            class="navbar-brand"
+            style="cursor: pointer">Mon Compte</a>
+      </li>
     </ul>
   </div>
 
