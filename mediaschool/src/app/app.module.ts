@@ -16,6 +16,9 @@ import { AddChildComponent } from './account/add-child/add-child.component';
 import { CanteenComponent } from './account/canteen/canteen.component';
 import { ChildrenListComponent } from './account/children-list/children-list.component';
 import { SingleChildComponent } from './account/single-child/single-child.component';
+import { PostsListComponent } from './blog/posts-list/posts-list.component';
+import { SinglePostComponent } from './blog/single-post/single-post.component';
+import { AddPostComponent } from './blog/add-post/add-post.component';
 
 const appRoutes: Routes = [
   {path: 'auth/signup', component: SignupComponent},
@@ -42,6 +45,9 @@ const appRoutes: Routes = [
     CanteenComponent,
     ChildrenListComponent,
     SingleChildComponent,
+    PostsListComponent,
+    SinglePostComponent,
+    AddPostComponent,
 
   ],
   imports: [
