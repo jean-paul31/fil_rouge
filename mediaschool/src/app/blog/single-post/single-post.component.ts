@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from "../../model/posts.model";
 
 @Component({
   selector: 'app-single-post',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./single-post.component.css']
 })
 export class SinglePostComponent implements OnInit {
+
+  post: Post[] = [];
 
   constructor() { }
 

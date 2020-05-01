@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../../model/posts.model';
+import { Subscription } from 'rxjs';
+import { PostsService } from 'src/app/services/posts.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,20 +12,14 @@ import { Post } from '../../model/posts.model';
 })
 export class PostsListComponent implements OnInit {
 
-  post: Post[] = []
+  post: Post[] = [];
+  postsSubscription: Subscription;
 
-  constructor() { }
+  constructor(private postsService: PostsService, private router: Router) { }
 
   ngOnInit() {
+    43mins:55
   }
-   posts =
-  [ 
-    new Post("Mon premier titre", "Madame Truc", "Lorem25", "https://i2.wp.com/mairie-rosporden.bzh/wp-content/uploads/2020/01/P1280763.jpg?fit=1030%2C581&ssl=1"),
-    new Post("Mon premier titre", "Madame Truc", "Lorem25", "https://i2.wp.com/mairie-rosporden.bzh/wp-content/uploads/2020/01/P1280763.jpg?fit=1030%2C581&ssl=1"),
-    new Post("Mon premier titre", "Madame Truc", "Lorem25", "https://i2.wp.com/mairie-rosporden.bzh/wp-content/uploads/2020/01/P1280763.jpg?fit=1030%2C581&ssl=1"),
-    new Post("Mon premier titre", "Madame Truc", "Lorem25", "https://i2.wp.com/mairie-rosporden.bzh/wp-content/uploads/2020/01/P1280763.jpg?fit=1030%2C581&ssl=1"),
-    new Post("Mon premier titre", "Madame Truc", "Lorem25", "https://i2.wp.com/mairie-rosporden.bzh/wp-content/uploads/2020/01/P1280763.jpg?fit=1030%2C581&ssl=1"),
-    new Post("Mon premier titre", "Madame Truc", "Lorem25", "https://i2.wp.com/mairie-rosporden.bzh/wp-content/uploads/2020/01/P1280763.jpg?fit=1030%2C581&ssl=1")
-  ]
+
 
 }
