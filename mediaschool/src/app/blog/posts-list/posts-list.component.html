@@ -1,1 +1,19 @@
-<p>posts-list works!</p>
+<div class="row">
+  <div class="col-xs-12">
+    <h2>Vos potes</h2>
+    <div class="list-group">
+      <button class="list-group-item"
+              *ngFor="let post of posts; let i = index"
+              (click)="onViewPost(i)">
+        <h3 class="list-group-item-heading">
+          {{post.titre}}
+          <button class="btn btn-default pull-right" (click)="onDeletePost(post)">
+            <span class="glyphicon glyphicon-minus"></span>
+          </button>
+        </h3>
+        <p class="list-group-item-text">{{post.auteur}}</p>
+      </button>
+    </div>
+    <button class="btn btn-primary" (click)="onNewPost">nouveau poste</button>
+  </div>
+</div>

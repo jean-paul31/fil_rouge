@@ -1,1 +1,9 @@
-<p>blog works!</p>
+<div class="row">
+  <div class="col-xs-12">
+    <h1> {{post.titre}} </h1>
+    <h3> {{post.author}} </h3>
+    <img src=" {{post.img}} ">
+    <p> {{post.text}} </p>
+    <button class="btn btn-default" (click)="onBack()">Retour</button>
+  </div>
+</div>

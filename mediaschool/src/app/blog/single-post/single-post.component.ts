@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from "../../model/posts.model";
+import { ActivatedRoute, Router } from '@angular/router';
+import { PostsService } from 'src/app/services/posts.service';
 
 @Component({
   selector: 'app-single-post',
@@ -8,11 +10,24 @@ import { Post } from "../../model/posts.model";
 })
 export class SinglePostComponent implements OnInit {
 
-  post: Post[] = [];
+  post: Post;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+              private postsService: PostsService,
+              private router: Router) { }
 
   ngOnInit() {
+    this.post = new Post('','','','');
+    const id = this.route.snapshot.params['id'];
+    this.postsService.getSinglePost(+id).then(
+      (post:Post)=>{
+        this.post = post;
+      }
+    );
+  }
+
+  onBack(){
+    this.router.navigate(['/blog']);
   }
 
 }
