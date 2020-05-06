@@ -12,5 +12,5 @@ export class AddPostComponent implements OnInit {
   ngOnInit() {
   }
 
-51mins32
+
 }
