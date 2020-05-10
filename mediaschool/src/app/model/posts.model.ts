@@ -1,13 +1,18 @@
 import { User } from 'firebase';
 
+
 export class Post{
 
     private date: Date;
 
     private id: User;
 
-    constructor(public title: string,
-                public author: string,
-                public text: string,
-                public img: string){}
+    private author: string;
+
+    private title: string;
+
+    private img: string;
+
+    constructor( public text: string){}
+
 }

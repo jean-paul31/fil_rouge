@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 
 
 
+
 @Component({
   selector: 'app-posts-list',
   templateUrl: './posts-list.component.html',
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class PostsListComponent implements OnInit, OnDestroy {
 
-  post: Post[] = [];
+  post: Post[];
   postsSubscription: Subscription;
   isClicked = false;
 
@@ -48,6 +49,8 @@ export class PostsListComponent implements OnInit, OnDestroy {
   ngOnDestroy(){
     this.postsSubscription.unsubscribe();
   }
+
+
 
 
 }
