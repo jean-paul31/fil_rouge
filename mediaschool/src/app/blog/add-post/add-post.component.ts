@@ -4,6 +4,7 @@ import { PostsService } from 'src/app/services/posts.service';
 import { Router } from '@angular/router';
 import { Post } from 'src/app/model/posts.model';
 
+
 @Component({
   selector: 'app-add-post',
   templateUrl: './add-post.component.html',
@@ -23,16 +24,21 @@ export class AddPostComponent implements OnInit {
 
   initForm(){
     this.postForm = this.formBuilder.group({
-      text: ['', Validators.required],
+      name: ['', Validators.required],
+      text: ''
     })
   }
 
   onSavePost(){
+    const name = this.postForm.get('name').value;
     const text = this.postForm.get('post').value;
-    const newPost = new Post(text);
+    const newPost = new Post(name);
+    newPost.text = text;
     this.postsService.createNewPost(newPost);
     this.router.navigate(['/blog']);
-  }
+
+  };
+
 
 
 }

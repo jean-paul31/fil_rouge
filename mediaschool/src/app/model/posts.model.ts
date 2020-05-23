@@ -5,7 +5,7 @@ export class Post{
 
     private date: Date;
 
-    private id: User;
+    public text: string
 
     private author: string;
 
@@ -13,6 +13,6 @@ export class Post{
 
     private img: string;
 
-    constructor( public text: string){}
+    constructor( public id: User){}
 
 }
