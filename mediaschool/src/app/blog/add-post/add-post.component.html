@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <form action="" class="group-form" (ngSubmit)="onSavePost()" [formGroup]="postForm">
+    <form class="group-form" [formGroup]="postForm" (ngSubmit)="onSavePost()">
 
       <div>
         <label for="name"><strong>VOTRE NOM:</strong></label>
@@ -8,8 +8,8 @@
       </div>
 <br>
       <div>
-        <label for="post"><strong>VOTRE MESSAGE :</strong></label>
-      <textarea formControlName="post" id="post" class="form-control" rows="20" cols="20"></textarea>
+        <label for="message"><strong>VOTRE MESSAGE :</strong></label>
+        <textarea formControlName="message" id="message" class="form-control" rows="20" cols="20"></textarea>
       <br><br>
       <button type="submit" class="btn btn-primary" [disabled]= "postForm.invalid">poster</button>
       </div>

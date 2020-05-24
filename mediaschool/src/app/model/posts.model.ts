@@ -5,14 +5,12 @@ export class Post{
 
     private date: Date;
 
-    public text: string
-
     private author: string;
 
     private title: string;
 
     private img: string;
 
-    constructor( public id: User){}
+    constructor( public id: User, public text: string){}
 
 }

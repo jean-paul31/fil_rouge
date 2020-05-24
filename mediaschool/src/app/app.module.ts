@@ -25,6 +25,7 @@ const appRoutes: Routes = [
   {path: 'auth/signin', component: SigninComponent},
   {path: 'header', component: HeaderComponent},
   {path: 'blog', canActivate:[AuthGuardService], component: BlogComponent},
+  {path: 'addPost', canActivate:[AuthGuardService], component: AddPostComponent },
   {path: 'account', canActivate:[AuthGuardService], component: AccountComponent},
   {path: 'add-child', canActivate:[AuthGuardService], component: AddChildComponent},
   {path: 'canteen', canActivate:[AuthGuardService], component: CanteenComponent},

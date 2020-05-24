@@ -35,6 +35,7 @@ export class PostsListComponent implements OnInit, OnDestroy {
   }
 
   newMessage(){
+
     this.isClicked = !this.isClicked;
   }
 
