@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { PostsListComponent } from "../posts-list/posts-list.component";
 import { PostsService } from 'src/app/services/posts.service';
 import { Router } from '@angular/router';
 import { Post } from 'src/app/model/posts.model';
@@ -40,6 +41,8 @@ export class AddPostComponent implements OnInit {
 
     this.postsService.createNewPost(newPost);
     this.router.navigate(['/blog']);
+
+    
 
   };
 
