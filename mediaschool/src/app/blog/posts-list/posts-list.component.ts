@@ -16,7 +16,7 @@ export class PostsListComponent implements OnInit, OnDestroy {
 
   post: Post[];
   postsSubscription: Subscription;
-  isClicked = false;
+  
 
   constructor(private postsService: PostsService,
               private router: Router) { }
@@ -31,20 +31,16 @@ export class PostsListComponent implements OnInit, OnDestroy {
   }
 
   onNewpost(){
-    this.router.navigate(['/new']);
+    this.router.navigate(['/blog/new']);
   }
 
-  newMessage(){
-
-    this.isClicked = !this.isClicked;
-  }
 
   onDeletePost(post: Post){
     this.postsService.removePost(post);
   }
 
   onViewPost(id: number){
-    this.router.navigate(['/post', 'view', id]);
+    this.router.navigate(['/blog', 'view', id]);
   }
 
   ngOnDestroy(){
