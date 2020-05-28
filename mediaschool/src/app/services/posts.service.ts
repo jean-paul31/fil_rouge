@@ -26,16 +26,18 @@ export class PostsService {
   }
 
   getPosts(){
-    firebase.database().ref('/blog').on('value', (data: DataSnapshot)=>{
-      this.posts = data.val() ? data.val() : [];
-      this.emitPosts();
-    });
+    firebase.database().ref('/blog')
+      .on('value', (data: DataSnapshot)=>{
+        this.posts = data.val() ? data.val() : [];
+        this.emitPosts();
+      }
+    );
   }
 
   getSinglePost(id: number){
     return new Promise(
       (resolve, reject)=>{
-        firebase.database().ref('/blog/' + id).once("value").then(
+        firebase.database().ref('/blog/' + id).once('value').then(
           (data: DataSnapshot)=>{
             resolve(data.val());
           }, (error)=>{
