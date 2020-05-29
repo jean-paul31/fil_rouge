@@ -35,7 +35,6 @@ export class PostsListComponent implements OnInit, OnDestroy {
   }
 
   newMessage(){
-
     this.isClicked = !this.isClicked;
   }
 
@@ -44,7 +43,7 @@ export class PostsListComponent implements OnInit, OnDestroy {
   }
 
   onViewPost(id: number){
-    this.router.navigate(['/post', 'view', id]);
+    this.router.navigate(['/post', 'view', +id]);
   }
 
   ngOnDestroy(){
