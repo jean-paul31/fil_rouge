@@ -26,10 +26,12 @@ export class PostsService {
   }
 
   getPosts(){
-    firebase.database().ref('/blog').on('value', (data: DataSnapshot)=>{
-      this.posts = data.val() ? data.val() : [];
-      this.emitPosts();
-    });
+    firebase.database().ref('/blog')
+      .on('value', (data: DataSnapshot)=>{
+        this.posts = data.val() ? data.val() : [];
+        this.emitPosts();
+      }
+    );
   }
 
   getSinglePost(id: number){

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { Post } from '../../model/posts.model';
 import { Subscription } from 'rxjs';
 import { PostsService } from 'src/app/services/posts.service';
@@ -16,7 +16,7 @@ export class PostsListComponent implements OnInit, OnDestroy {
 
   post: Post[];
   postsSubscription: Subscription;
-  isClicked = false;
+
 
   constructor(private postsService: PostsService,
               private router: Router) { }
@@ -31,19 +31,16 @@ export class PostsListComponent implements OnInit, OnDestroy {
   }
 
   onNewpost(){
-    this.router.navigate(['/posts', 'new']);
+    this.router.navigate(['/blog/new']);
   }
 
-  newMessage(){
-    this.isClicked = !this.isClicked;
-  }
 
   onDeletePost(post: Post){
     this.postsService.removePost(post);
   }
 
   onViewPost(id: number){
-    this.router.navigate(['/post', 'view', +id]);
+    this.router.navigate(['/blog', 'view', +id]);
   }
 
   ngOnDestroy(){
