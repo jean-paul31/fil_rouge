@@ -26,23 +26,21 @@ export class AddPostComponent implements OnInit {
   initForm(){
     this.postForm = this.formBuilder.group({
       name: ['', Validators.required],
-      message: ['']
+      message: ['', Validators.required]
     })
   }
 
   onSavePost(){
     const name = this.postForm.get('name').value;
-    console.log(name);
     const text = this.postForm.get('message').value;
-    console.log(text);
 
     const newPost = new Post(name, text);
-    newPost.text = text;
+    // newPost.text = text;
 
     this.postsService.createNewPost(newPost);
     this.router.navigate(['/blog']);
 
-    
+
 
   };
 

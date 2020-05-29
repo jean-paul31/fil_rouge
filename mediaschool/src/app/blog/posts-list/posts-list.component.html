@@ -1,11 +1,12 @@
 <div class="row">
   <div class="col-xs-12">
     <h2>Vos postes</h2>
-    <div class="list-group" *ngFor="let post of posts; let i = index">
+    <div class="list-group" >
       <button class="list-group-item"
+              *ngFor="let post of posts; let i = index"
               (click)="onViewPost(i)">
-              <h1> {{this.post.id}} </h1>
-              <p class="list-group-item-text"> {{this.post.text}} </p>
+              <h1 class="list-group-item-heading"> {{post.id}} </h1>
+              <h3 class="list-group-item-text"> {{User.name}} </h3>
       </button>
     </div>
     <button class="btn btn-primary" (click)="onNewpost()">nouveau poste</button>

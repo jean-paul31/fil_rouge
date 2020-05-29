@@ -27,11 +27,12 @@ export class PostsListComponent implements OnInit, OnDestroy {
         this.post = post;
       }
     );
+    this.postsService.getPosts();
     this.postsService.emitPosts();
   }
 
   onNewpost(){
-    this.router.navigate(['/blog/new']);
+    this.router.navigate(['/blog', 'new']);
   }
 
 
@@ -40,7 +41,7 @@ export class PostsListComponent implements OnInit, OnDestroy {
   }
 
   onViewPost(id: number){
-    this.router.navigate(['/blog', 'view', +id]);
+    this.router.navigate(['/blog', 'view', id]);
   }
 
   ngOnDestroy(){
