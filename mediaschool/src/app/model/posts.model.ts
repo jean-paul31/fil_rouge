@@ -11,6 +11,6 @@ export class Post{
 
     private img: string;
 
-    constructor( public id: User, public text: string){}
+    constructor( public id: string, public text: string){}
 
 }
