@@ -16,7 +16,7 @@ export class PostsListComponent implements OnInit, OnDestroy {
 
   post: Post[];
   postsSubscription: Subscription;
-  
+
 
   constructor(private postsService: PostsService,
               private router: Router) { }
@@ -27,11 +27,12 @@ export class PostsListComponent implements OnInit, OnDestroy {
         this.post = post;
       }
     );
+    this.postsService.getPosts();
     this.postsService.emitPosts();
   }
 
   onNewpost(){
-    this.router.navigate(['/blog/new']);
+    this.router.navigate(['/blog', 'new']);
   }
 
 

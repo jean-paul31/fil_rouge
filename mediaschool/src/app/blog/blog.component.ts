@@ -7,15 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogComponent implements OnInit {
 
-  isClicked = false;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  newMessage(){
-    this.isClicked = !this.isClicked;
-  }
+
 
 }
