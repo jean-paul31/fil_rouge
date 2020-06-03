@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
 import { Post } from '../model/posts.model';
 import { Subject } from 'rxjs';
-// import  DataSnapshot = firebase.database.DataSnapshot;
+ import  DataSnapshot = firebase.database.DataSnapshot;
 import * as firebase from 'firebase';
 
 
@@ -10,7 +10,7 @@ import * as firebase from 'firebase';
 })
 export class PostsService {
 
-  posts: Post[] = [];
+  @Output() posts: Post[] = [];
   postsSubject = new Subject<Post[]>();
 
   constructor() {
@@ -27,7 +27,7 @@ export class PostsService {
 
   getPosts(){
     firebase.database().ref('/blog')
-      .on('value', (data)=>{
+      .on('value', (data: DataSnapshot)=>{
         this.posts = data.val() ? data.val() : [];
         this.emitPosts();
       }
