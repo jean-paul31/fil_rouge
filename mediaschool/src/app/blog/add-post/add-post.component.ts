@@ -4,6 +4,8 @@ import { PostsListComponent } from "../posts-list/posts-list.component";
 import { PostsService } from 'src/app/services/posts.service';
 import { Router } from '@angular/router';
 import { Post } from 'src/app/model/posts.model';
+import { DatePipe } from "@angular/common";
+
 
 
 @Component({
@@ -15,11 +17,12 @@ export class AddPostComponent implements OnInit {
 
   postForm: FormGroup;
   lastUpdate: Date;
-  
+
 
   constructor(private formBuilder: FormBuilder,
               private postsService: PostsService,
-              private router: Router) { }
+              private router: Router,
+              private datePipe: DatePipe) { }
 
   ngOnInit() {
     this.initForm();
@@ -36,11 +39,13 @@ export class AddPostComponent implements OnInit {
     const text = this.postForm.get('message').value;
     const title = this.postForm.get('title').value;
     const lastUpdate = new Date(Date.now());
-    
-    
 
-    const newPost = new Post(text, title);
-    newPost.createdAt = lastUpdate;
+
+
+    const newPost = new Post(text, title, lastUpdate.toString());
+    console.log(lastUpdate);
+
+    // newPost.createdAt = lastUpdate;
 
     this.postsService.createNewPost(newPost);
     this.router.navigate(['/blog']);
