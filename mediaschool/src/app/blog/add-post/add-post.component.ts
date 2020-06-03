@@ -14,6 +14,7 @@ import { Post } from 'src/app/model/posts.model';
 export class AddPostComponent implements OnInit {
 
   postForm: FormGroup;
+  
 
   constructor(private formBuilder: FormBuilder,
               private postsService: PostsService,
@@ -25,16 +26,18 @@ export class AddPostComponent implements OnInit {
 
   initForm(){
     this.postForm = this.formBuilder.group({
-      name: ['', Validators.required],
+      title: ['', Validators.required],
       message: ['', Validators.required]
     })
   }
 
   onSavePost(){
-    const name = this.postForm.get('name').value;
     const text = this.postForm.get('message').value;
+    const title = this.postForm.get('title').value;
+    
+    
 
-    const newPost = new Post(name, text);
+    const newPost = new Post(text, title);
     // newPost.text = text;
 
     this.postsService.createNewPost(newPost);

@@ -6,7 +6,7 @@
               *ngFor="let single of post; let i = index"
               (click)="onViewPost(i)">
               <h2 class="list-group-item-heading"> {{single.id}} </h2>
-              <p class="list-group-item-text"> {{single.text}} </p>
+              <p class="list-group-item-text"> {{single.title}} </p>
       </button>
     </div>
     <button class="btn btn-primary" (click)="onNewpost()">nouveau poste</button>

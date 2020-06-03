@@ -39,6 +39,7 @@ export class PostsListComponent implements OnInit, OnDestroy {
 
   onDeletePost(post: Post){
     this.postsService.removePost(post);
+    this.router.navigate(['/blog']);
   }
 
   onViewPost(id: number){

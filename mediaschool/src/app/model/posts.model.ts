@@ -3,14 +3,14 @@
 
 export class Post{
 
-    private date: Date;
-
     private author: string;
-
-    private title: string;
 
     private img: string;
 
-    constructor( public id: string, public text: string){}
+    
+
+    private id: string
+
+    constructor( public text: string, public title: string, public lastUpdate: Date = new Date()){}
 
 }
