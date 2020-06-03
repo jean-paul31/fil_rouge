@@ -7,10 +7,10 @@ export class Post{
 
     private img: string;
 
-    
+    // public createdAt: Date = new Date(Date.now());
 
     private id: string
 
-    constructor( public text: string, public title: string, public lastUpdate: Date = new Date()){}
+    constructor( public text: string, public title: string, public createdAt: Date = new Date(Date.now().toString())){}
 
 }

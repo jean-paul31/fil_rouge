@@ -14,6 +14,7 @@ import { Post } from 'src/app/model/posts.model';
 export class AddPostComponent implements OnInit {
 
   postForm: FormGroup;
+  lastUpdate: Date;
   
 
   constructor(private formBuilder: FormBuilder,
@@ -34,11 +35,12 @@ export class AddPostComponent implements OnInit {
   onSavePost(){
     const text = this.postForm.get('message').value;
     const title = this.postForm.get('title').value;
+    const lastUpdate = new Date(Date.now());
     
     
 
     const newPost = new Post(text, title);
-    // newPost.text = text;
+    newPost.createdAt = lastUpdate;
 
     this.postsService.createNewPost(newPost);
     this.router.navigate(['/blog']);

@@ -25,13 +25,14 @@ export class PostsService {
 
   savePosts(){
     firebase.database().ref('/blog').set(this.posts);
+
+    
   }
 
   getPosts(){
     firebase.database().ref('/blog')
       .on('value', (data: DataSnapshot)=>{
         this.posts = data.val() ? data.val() : [];
-        console.log(this.posts);
         
         this.emitPosts();
       }
