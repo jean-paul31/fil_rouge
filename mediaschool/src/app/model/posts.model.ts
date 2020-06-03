@@ -1,4 +1,4 @@
-import { User } from 'firebase';
+
 
 
 export class Post{

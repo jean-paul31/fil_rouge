@@ -25,6 +25,10 @@ export class SinglePostComponent implements OnInit {
       }
     );
   }
+  onDeletePost(post: Post){
+    this.postsService.removePost(post);
+    this.router.navigate(['/blog']);
+  }
 
   onBack(){
     this.router.navigate(['/blog']);

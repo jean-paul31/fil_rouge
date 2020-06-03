@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy} from '@angular/core';
 import { Post } from '../../model/posts.model';
 import { Subscription } from 'rxjs';
-import { PostsService } from 'src/app/services/posts.service';
+import { PostsService } from '../../services/posts.service';
 import { Router } from '@angular/router';
 
 
@@ -23,11 +23,12 @@ export class PostsListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.postsSubscription = this.postsService.postsSubject.subscribe(
-      (post: Post[])=>{
-        this.post = post;
+      (article: Post[])=>{
+        this.post = article;
+        
       }
     );
-    this.postsService.getPosts();
+
     this.postsService.emitPosts();
   }
 
