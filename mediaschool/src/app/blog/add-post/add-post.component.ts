@@ -38,22 +38,15 @@ export class AddPostComponent implements OnInit {
   onSavePost(){
     const text = this.postForm.get('message').value;
     const title = this.postForm.get('title').value;
-    const lastUpdate = new Date(Date.now());
-
-
-
-    const newPost = new Post(text, title, lastUpdate.toString());
-    console.log(lastUpdate);
-
-    // newPost.createdAt = lastUpdate;
-
+    const createdAt = new Date(Date.now());
+    const newPost = new Post(text, title, createdAt.toString());
     this.postsService.createNewPost(newPost);
     this.router.navigate(['/blog']);
-
-
-
   };
 
+  onBack(){
+    this.router.navigate(['/blog']);
+  }
 
 
 }
