@@ -1,11 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
+import { User } from "../model/user-model";
+import { Subject } from 'rxjs';
 import * as firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
+  
   constructor() { }
 
   createNewUser(email:string, password:string){

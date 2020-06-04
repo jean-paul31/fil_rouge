@@ -21,8 +21,7 @@ export class AddPostComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private postsService: PostsService,
-              private router: Router,
-              private datePipe: DatePipe) { }
+              private router: Router) { }
 
   ngOnInit() {
     this.initForm();

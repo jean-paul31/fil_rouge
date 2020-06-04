@@ -1,10 +1,10 @@
 export class User{
 
-  private id: number;
-  private name: string;
-  private surname: string;
-  private img: string;
+  
+  public img: string
+  
+  
 
-  constructor(){}
+  constructor( private surname: string, private name: string){}
 
 }

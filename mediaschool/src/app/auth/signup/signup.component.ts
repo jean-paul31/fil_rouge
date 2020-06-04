@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { User } from "../../model/user-model";
 import { Router } from '@angular/router';
 
 @Component({
@@ -32,7 +33,7 @@ export class SignupComponent implements OnInit {
     const password = this.signUpForm.get('password').value;
 
 
-    this.authService.createNewUser(email, password).then(
+    this.authService.createNewUser( email, password).then(
       ()=> {
         this.router.navigate(['/blog']);
       },
@@ -41,5 +42,6 @@ export class SignupComponent implements OnInit {
       }
     );
   }
+ 
 
 }

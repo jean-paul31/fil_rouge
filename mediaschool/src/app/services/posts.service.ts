@@ -25,8 +25,6 @@ export class PostsService {
 
   savePosts(){
     firebase.database().ref('/blog').set(this.posts);
-
-
   }
 
   getPosts(){
@@ -57,7 +55,6 @@ export class PostsService {
     this.posts.push(newPost);
     this.savePosts();
     this.emitPosts();
-
   }
 
   removePost(post: Post){
