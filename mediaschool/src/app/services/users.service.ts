@@ -27,6 +27,19 @@ export class UsersService {
     this.emitUser();
   }
 
+  removeUser(user: User){
+    const postIndexToRemove = this.users.findIndex(
+      (userEl)=>{
+        if (userEl === user) {
+          return true;
+        }
+      }
+    );
+    this.users.splice(postIndexToRemove, 1);
+    this.saveUsers();
+    this.emitUser();
+  }
+
   uploadFile(file: File) {
     return new Promise(
       (resolve, reject) => {

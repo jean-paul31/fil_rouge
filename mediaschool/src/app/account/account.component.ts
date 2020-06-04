@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UsersService } from "../services/users.service";
 import { User } from '../model/user-model';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -16,21 +17,31 @@ export class AccountComponent implements OnInit {
   fileIsUploading = false;
   fileUrl: string;
   fileUploaded = false;
+  isregister = false;
+  
 
   constructor(private usersService: UsersService,
-              private formBuilder: FormBuilder,
-              private router: Router) { }
+    private formBuilder: FormBuilder,
+    private router: Router) { }
 
   ngOnInit() {
     this.initForm();
   }
 
-  initForm(){
+  initForm() {
     this.userForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      surname: ['', Validators.required]
+      name: ['', [Validators.required]],
+      surname: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]]
     })
+
+    
   }
+  onDeleteUser(user: User){
+    this.usersService.removeUser(user);
+    this.router.navigate(['/blog']);
+  }
+ 
 
   onUploadFile(file: File) {
     this.fileIsUploading = true;
@@ -41,23 +52,24 @@ export class AccountComponent implements OnInit {
         this.fileUploaded = true;
       }
     );
-}
-
-onSaveUser() {
-  const name = this.userForm.get('name').value;
-  const surname = this.userForm.get('surname').value;
-  const newUser = new User(name, surname);
-  if(this.fileUrl && this.fileUrl !== '') {
-    newUser.img = this.fileUrl;
   }
-  this.usersService.createNewUser(newUser);
-  this.router.navigate(['/books']);
-}
 
-detectFiles(event) {
-  this.onUploadFile(event.target.files[0]);
-}
+  onSaveUser() {
+    const name = this.userForm.get('name').value;
+    const surname = this.userForm.get('surname').value;
+    const email = this.userForm.get('email').value;
+    const newUser = new User(name, surname, email);
+    if (this.fileUrl && this.fileUrl !== '') {
+      newUser.photo = this.fileUrl;
+    }
+    this.usersService.createNewUser(newUser);
+    this.router.navigate(['/blog']);
+  }
 
- 
+  detectFiles(event) {
+    this.onUploadFile(event.target.files[0]);
+  }
+
+
 
 }

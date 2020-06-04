@@ -1,6 +1,4 @@
-import { Injectable, Output } from '@angular/core';
-import { User } from "../model/user-model";
-import { Subject } from 'rxjs';
+import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 
 @Injectable({

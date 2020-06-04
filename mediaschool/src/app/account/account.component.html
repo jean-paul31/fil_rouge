@@ -3,18 +3,26 @@
     <h1>mettre à jour votre compte</h1>
     <form method="post" class="form-group" [formGroup]="userForm" (ngSubmit)="onSaveUser()">
       <div>
-        <label for="name">votre nom</label>
+        <label for="name">votre nom: </label>
         <input type="text" name="name" id="name" class="form-control" formControlName="name">
       </div>
       <div>
-        <label for="surname">votre prénom</label>
+        <label for="surname">votre prénom: </label>
         <input type="text" name="surname" id="surname" class="form-control" formControlName="surname">
+      </div>
+      <div>
+        <label for="email">votre adresse mail: </label>
+        <input type="text" name="email" id="email" class="form-control" formControlName="email">
       </div>
       <h4>Ajouter une photo</h4>
       <input type="file" (change)="detectFiles($event)" class="form-control" accept="image/*">
       <p class="text-success" *ngIf="fileUploaded">Fichier chargé !</p>
       <button class="btn btn-success" [disabled]="userForm.invalid || fileIsUploading" type="submit">Enregistrer
       </button>
+      <button class="btn btn-secondary" (click)="onDeleteUser(user)">
+        effacer
+      </button>
     </form>
+    <img style="max-width:400px;" *ngIf="users.photo" [src]="users.photo">
   </div>
 </div>

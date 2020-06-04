@@ -1,10 +1,10 @@
 export class User{
 
   
-  public img: string
+  photo: string
   
   
 
-  constructor( private surname: string, private name: string){}
+  constructor( private surname: string, private name: string, private email: string){}
 
 }

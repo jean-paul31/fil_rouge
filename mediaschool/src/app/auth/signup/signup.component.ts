@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from "../../model/user-model";
 import { Router } from '@angular/router';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-signup',
@@ -15,6 +16,7 @@ export class SignupComponent implements OnInit {
   errorMessage: string;
 
   constructor(private formBuilder: FormBuilder,
+              private usersService: UsersService,
               private authService: AuthService,
               private router: Router) { }
 
@@ -42,6 +44,6 @@ export class SignupComponent implements OnInit {
       }
     );
   }
- 
+
 
 }

@@ -5,6 +5,7 @@ import { PostsService } from 'src/app/services/posts.service';
 import { Router } from '@angular/router';
 import { Post } from 'src/app/model/posts.model';
 import { DatePipe } from "@angular/common";
+import { UsersService } from 'src/app/services/users.service';
 
 
 
@@ -16,7 +17,7 @@ import { DatePipe } from "@angular/common";
 export class AddPostComponent implements OnInit {
 
   postForm: FormGroup;
-  lastUpdate: Date;
+  
 
 
   constructor(private formBuilder: FormBuilder,
@@ -41,6 +42,7 @@ export class AddPostComponent implements OnInit {
     const newPost = new Post(text, title, createdAt.toString());
     this.postsService.createNewPost(newPost);
     this.router.navigate(['/blog']);
+    console.log(UsersService)
   };
 
   onBack(){
