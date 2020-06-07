@@ -20,6 +20,7 @@ import { SingleChildComponent } from './account/single-child/single-child.compon
 import { PostsListComponent } from './blog/posts-list/posts-list.component';
 import { SinglePostComponent } from './blog/single-post/single-post.component';
 import { AddPostComponent } from './blog/add-post/add-post.component';
+import { ProfilComponent } from './account/profil/profil.component';
 
 const appRoutes: Routes = [
   {path: 'auth/signup', component: SignupComponent},
@@ -52,6 +53,7 @@ const appRoutes: Routes = [
     PostsListComponent,
     SinglePostComponent,
     AddPostComponent,
+    ProfilComponent,
 
   ],
   imports: [

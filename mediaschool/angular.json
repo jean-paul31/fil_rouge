@@ -121,6 +121,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "mediaschool"
+    }
+  },
+  "defaultProject": "mediaschool",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,8 +1,9 @@
-import { Injectable, Output } from '@angular/core';
+import { Injectable, Output, Directive } from '@angular/core';
 import * as firebase from 'firebase';
 import { User } from '../model/user-model';
 import { Subject } from 'rxjs';
 
+@Directive()
 @Injectable({
   providedIn: 'root'
 })
