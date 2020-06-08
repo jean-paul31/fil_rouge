@@ -34,7 +34,6 @@ export class PostsListComponent implements OnInit, OnDestroy {
 
   onNewpost(){
     this.router.navigate(['/blog', 'new']);
-    console.log(this.post);
 
   }
 

@@ -5,6 +5,6 @@ export class User{
   
   
 
-  constructor( private surname: string, private name: string, private email: string){}
+  constructor( public surname: string, public name: string, public email: string){}
 
 }

@@ -5,7 +5,7 @@ import  DataSnapshot = firebase.database.DataSnapshot;
 import * as firebase from 'firebase';
 
 
-@Directive()
+// @Directive()
 @Injectable({
   providedIn: 'root'
 })

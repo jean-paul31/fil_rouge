@@ -1,1 +1,13 @@
 <app-profil></app-profil>
+<div class="row">
+    <div class="col-md-12">
+        <div>
+            
+            <h1 for="name"> {{user.name}} </h1>
+            <label for="surname"> {{user.surname}} </label>
+            <label for="email"> {{user.email}} </label>
+            <img style="max-width:400px;" *ngIf="user.photo" [src]="user.photo">
+    
+        </div>
+    </div>
+</div>

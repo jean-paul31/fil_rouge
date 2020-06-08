@@ -4,7 +4,6 @@ import { PostsListComponent } from "../posts-list/posts-list.component";
 import { PostsService } from 'src/app/services/posts.service';
 import { Router } from '@angular/router';
 import { Post } from 'src/app/model/posts.model';
-import { DatePipe } from "@angular/common";
 import { UsersService } from 'src/app/services/users.service';
 
 
