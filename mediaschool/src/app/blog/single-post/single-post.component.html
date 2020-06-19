@@ -1,11 +1,15 @@
 <div class="row">
   <div class="col-xs-12">
     <h1> {{ post.title }} </h1>
-    <p>dernière mise à jour: <br> {{ post.createdAt | date: 'short'}}</p>
+    <p> {{ post.createdAt | date: 'short'}}</p>
     <p> {{ post.text }} </p>
     <button class="btn btn-secondary" (click)="onDeletePost(post)">
       effacer
     </button>
+    <div>
+      <app-commentaire></app-commentaire>
+    </div>
   </div>
+  <br>
   <button class="btn btn-secondary" (click)="onBack()">Retour</button>
 </div>

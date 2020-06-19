@@ -11,6 +11,8 @@ export class Post{
 
     private id: string
 
-    constructor( public text: string, public title: string, public createdAt: string ){}
+    constructor( public text: string,
+                 public title: string,
+                  public createdAt: string ){}
 
 }

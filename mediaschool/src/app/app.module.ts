@@ -21,6 +21,7 @@ import { PostsListComponent } from './blog/posts-list/posts-list.component';
 import { SinglePostComponent } from './blog/single-post/single-post.component';
 import { AddPostComponent } from './blog/add-post/add-post.component';
 import { ProfilComponent } from './account/profil/profil.component';
+import { CommentaireComponent } from './blog/commentaire/commentaire.component';
 
 const appRoutes: Routes = [
   {path: 'auth/signup', component: SignupComponent},
@@ -54,6 +55,7 @@ const appRoutes: Routes = [
     SinglePostComponent,
     AddPostComponent,
     ProfilComponent,
+    CommentaireComponent,
 
   ],
   imports: [
