@@ -1,15 +1,18 @@
-
+import { Comm } from "./com-model";
 
 
 export class Post{
 
-    private author: string;
-
-    private img: string;
+    com: Comm;
 
 
+    public author: string;
 
-    public id: number;
+    public img: string;
+
+    public comment= [{text:this.com.text, emmitedAt: this.com.emmitedAt}];
+
+    public postId: number;
 
     constructor( public text: string,
                  public title: string,

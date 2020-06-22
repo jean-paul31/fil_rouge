@@ -4,6 +4,7 @@ import { Comm } from '../model/com-model';
 import { Subject } from 'rxjs';
 import  DataSnapshot = firebase.database.DataSnapshot;
 import * as firebase from 'firebase';
+import { Post } from '../model/posts.model';
 
 
 // @Directive()
@@ -14,6 +15,7 @@ import * as firebase from 'firebase';
 export class CommsService {
 
   @Output() coms: Comm[];
+  comment:Post;
   comsSubject = new Subject<Comm[]>();
 
   constructor() {
@@ -26,7 +28,7 @@ export class CommsService {
   }
 
   saveComs(){   
-    firebase.database().ref('/comms').set(this.coms);
+    firebase.database().ref('/blog').set(this.comment.comment);
 
   }
 
