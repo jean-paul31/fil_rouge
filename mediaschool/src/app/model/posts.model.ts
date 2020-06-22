@@ -9,7 +9,7 @@ export class Post{
 
 
 
-    private id: string
+    public id: number;
 
     constructor( public text: string,
                  public title: string,

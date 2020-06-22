@@ -1,9 +1,9 @@
 import { Injectable, Output } from '@angular/core';
 import { Comm } from '../model/com-model';
+
 import { Subject } from 'rxjs';
 import  DataSnapshot = firebase.database.DataSnapshot;
 import * as firebase from 'firebase';
-
 
 
 // @Directive()
@@ -21,17 +21,17 @@ export class CommsService {
    }
 
   emitComs(){
-    this.  comsSubject.next(this.coms);
+    this.comsSubject.next(this.coms);
 
   }
 
   saveComs(){   
-    firebase.database().ref('/blog').child('comms').update({text:'', emmitedAt: ''});
+    firebase.database().ref('/comms').set(this.coms);
 
   }
 
   getComs(){
-    firebase.database().ref(`/blog/comms`)
+    firebase.database().ref('/comms')
       .on('value', (data: DataSnapshot)=>{
         this.coms = data.val() ? data.val() : [];
 
@@ -43,7 +43,7 @@ export class CommsService {
   getSingleCom(id: number){
     return new Promise(
       (resolve, reject)=>{
-        firebase.database().ref('/comments/' + id).once('value').then(
+        firebase.database().ref('/blog/' + id).once('value').then(
           (data: DataSnapshot)=>{
             resolve(data.val());
           }, (error)=>{

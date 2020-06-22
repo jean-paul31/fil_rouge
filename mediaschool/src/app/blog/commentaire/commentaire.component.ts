@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormsModule } from '@angular/forms';
 import { Comm } from "../../model/com-model";
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { CommsService } from '../../services/comms-service.service';
 import { Subscription } from 'rxjs';
 
@@ -14,6 +14,7 @@ export class CommentaireComponent implements OnInit {
 
   comsForm: FormGroup;
   coms: Comm[];
+  // id= this.route.snapshot.params['id']
   comsSubscription: Subscription;
 
 
@@ -42,12 +43,12 @@ export class CommentaireComponent implements OnInit {
     })
   }
 
-  onSaveCom(id: number){
+  onSaveCom(){
     const text = this.comsForm.get('text').value;
     const emmitedAt = new Date(Date.now());
     const newCom = new Comm(text, emmitedAt.toString());
     this.commsService.createNewCom(newCom);
-    this.router.navigate(['/blog', 'view', id]);
+    this.router.navigate(['/blog']);
 
   };
 

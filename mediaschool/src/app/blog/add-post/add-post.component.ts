@@ -30,7 +30,7 @@ export class AddPostComponent implements OnInit {
   initForm(){
     this.postForm = this.formBuilder.group({
       title: ['', Validators.required],
-      message: ['', Validators.required],
+      message: ['', Validators.required]
     })
   }
 
