@@ -5,6 +5,7 @@ import  DataSnapshot = firebase.database.DataSnapshot;
 import * as firebase from 'firebase';
 
 
+
 // @Directive()
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,7 @@ export class CommsService {
   }
 
   saveComs(){   
-    firebase.database().ref(`/blog`).child('comms').update('comms');
+    firebase.database().ref('/blog').child('comms').update({text:'', emmitedAt: ''});
 
   }
 

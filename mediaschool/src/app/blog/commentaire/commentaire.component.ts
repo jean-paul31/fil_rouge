@@ -48,6 +48,7 @@ export class CommentaireComponent implements OnInit {
     const newCom = new Comm(text, emmitedAt.toString());
     this.commsService.createNewCom(newCom);
     this.router.navigate(['/blog', 'view', id]);
+
   };
 
   onBack(){
