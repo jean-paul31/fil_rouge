@@ -1,13 +1,17 @@
-<app-profil></app-profil>
+
+<div *ngIf="!isClicked">
+    <app-profil></app-profil>
+</div>
+<button class="btn btn-secondary" (click)="mod()">MàJ</button>
 <div class="row">
-    <div class="col-md-12">
-        <div>
+    <div class="col-md-12" [ngModel]>
+        
             
-            <h1 for="name"> {{user.name}} </h1>
-            <label for="surname"> {{user.surname}} </label>
-            <label for="email"> {{user.email}} </label>
-            <img style="max-width:400px;" *ngIf="user.photo" [src]="user.photo">
+            <h1 for="name">bonjours {{Users.User.name}} </h1>
+            <label for="surname"> {{Users.User.surname}} </label>
+            <label for="email"> {{Users.User.email}} </label>
+            <img style="max-width:400px;" *ngIf="users.photo" [src]="users.photo">
     
-        </div>
+        
     </div>
 </div>

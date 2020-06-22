@@ -41,7 +41,7 @@ export class AddPostComponent implements OnInit {
     const newPost = new Post(text, title, createdAt.toString());
     this.postsService.createNewPost(newPost);
     this.router.navigate(['/blog']);
-    console.log(UsersService)
+    
   };
 
   onBack(){

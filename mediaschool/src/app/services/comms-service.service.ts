@@ -12,7 +12,7 @@ import * as firebase from 'firebase';
 
 export class CommsService {
 
-  @Output() coms: Comm[] = [];
+  @Output() coms: Comm[];
   comsSubject = new Subject<Comm[]>();
 
   constructor() {
@@ -24,12 +24,13 @@ export class CommsService {
 
   }
 
-  saveComs(){
-    firebase.database().ref('/comments').set(this.coms);
+  saveComs(){   
+    firebase.database().ref(`/blog`).child('comms').update('comms');
+
   }
 
   getComs(){
-    firebase.database().ref('/comments')
+    firebase.database().ref(`/blog/comms`)
       .on('value', (data: DataSnapshot)=>{
         this.coms = data.val() ? data.val() : [];
 

@@ -13,6 +13,7 @@ export class Post{
 
     constructor( public text: string,
                  public title: string,
-                  public createdAt: string ){}
+                 public createdAt: string,
+                 public comms: object = {}){}
 
 }

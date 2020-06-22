@@ -8,7 +8,7 @@
         </li>
       </ul>
     </div>
-    <form class="group-form" [formGroup]="comsForm" (ngSubmit)="onSaveCom()">
+    <form class="group-form" [formGroup]="comsForm" (ngSubmit)="onSaveCom(i)">
       <div class="input-group">
         <textarea formControlName="text" id="text" class="form-control" rows="1" cols="5"></textarea>
         <span class="input-group-btn">

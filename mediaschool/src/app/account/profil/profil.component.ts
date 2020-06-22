@@ -62,7 +62,7 @@ export class ProfilComponent implements OnInit {
                   newUser.photo = this.fileUrl;
                 }
                 this.usersService.createNewUser(newUser);
-                this.router.navigate(['/blog']);
+                this.router.navigate(['/account']);
               }
 
               detectFiles(event) {

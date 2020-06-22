@@ -42,13 +42,12 @@ export class CommentaireComponent implements OnInit {
     })
   }
 
-  onSaveCom(){
+  onSaveCom(id: number){
     const text = this.comsForm.get('text').value;
     const emmitedAt = new Date(Date.now());
     const newCom = new Comm(text, emmitedAt.toString());
     this.commsService.createNewCom(newCom);
-    this.router.navigate(['/blog']);
-    console.log(this.commsService.coms);
+    this.router.navigate(['/blog', 'view', id]);
   };
 
   onBack(){
