@@ -14,7 +14,7 @@ export class Post{
 
     public postId: number;
 
-    constructor( public text: string,
+    constructor( public texte: string,
                  public title: string,
                  public createdAt: string){}
 

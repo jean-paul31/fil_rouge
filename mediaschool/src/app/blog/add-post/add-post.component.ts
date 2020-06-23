@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { PostsListComponent } from "../posts-list/posts-list.component";
+import { PostsListComponent } from '../posts-list/posts-list.component';
 import { PostsService } from 'src/app/services/posts.service';
 import { Router } from '@angular/router';
 import { Post } from 'src/app/model/posts.model';
@@ -16,7 +16,7 @@ import { UsersService } from 'src/app/services/users.service';
 export class AddPostComponent implements OnInit {
 
   postForm: FormGroup;
-  
+
 
 
   constructor(private formBuilder: FormBuilder,
@@ -27,24 +27,24 @@ export class AddPostComponent implements OnInit {
     this.initForm();
   }
 
-  initForm(){
+  initForm() {
     this.postForm = this.formBuilder.group({
       title: ['', Validators.required],
       message: ['', Validators.required]
-    })
+    });
   }
 
-  onSavePost(){
-    const text = this.postForm.get('message').value;
+  onSavePost() {
+    const texte = this.postForm.get('message').value;
     const title = this.postForm.get('title').value;
     const createdAt = new Date(Date.now());
-    const newPost = new Post(text, title, createdAt.toString());
+    const newPost = new Post(texte, title, createdAt.toString());
     this.postsService.createNewPost(newPost);
     this.router.navigate(['/blog']);
-    
-  };
 
-  onBack(){
+  }
+
+  onBack() {
     this.router.navigate(['/blog']);
   }
 

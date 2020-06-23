@@ -13,7 +13,7 @@ export class AuthGuardService implements CanActivate {
 
   canActivate(): Observable<boolean> | Promise<boolean> {
     return new Promise(
-      (resolve, reject)=>{
+      (resolve, _reject)=>{
         firebase.auth().onAuthStateChanged(
           (user)=>{
             if (user) {

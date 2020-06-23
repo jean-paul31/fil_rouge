@@ -1,8 +1,8 @@
 export class Comm{
 
-    public author:string;
+    public author: string;
 
-    public comId: number
+    public comId: number;
 
 
   constructor(public text: string,

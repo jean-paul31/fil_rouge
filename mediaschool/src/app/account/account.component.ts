@@ -18,33 +18,30 @@ export class AccountComponent implements OnInit, OnDestroy   {
   users: User[];
   usersSubscription: Subscription;
   isClicked = false;
-  
+
 
 
   constructor( private usersService: UsersService,
                private router: Router) { }
-             
 
   ngOnInit() {
     this.usersSubscription = this.usersService.usersSubject.subscribe(
-      (users: User[])=>{
-        
+      (users: User[]) => {
+
         this.users = users;
         console.log(this.users);
-        
 
       }
     );
 
-    this.usersService.emitUser();    
+    this.usersService.emitUser();
 
       }
 
-      mod(){
+      mod() {
         this.isClicked = !this.isClicked;
       }
- 
-      ngOnDestroy(){
+      ngOnDestroy() {
         this.usersSubscription.unsubscribe();
       }
 
