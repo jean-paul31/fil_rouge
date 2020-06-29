@@ -1,27 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormsModule } from '@angular/forms';
 import { Comm } from "../../model/com-model";
 import { Router, ActivatedRoute } from '@angular/router';
+import { SinglePostComponent } from "../single-post/single-post.component";
 import { CommsService } from '../../services/comms-service.service';
 import { Subscription } from 'rxjs';
+import { Post } from 'src/app/model/posts.model';
+
 
 @Component({
   selector: 'app-commentaire',
   templateUrl: './commentaire.component.html',
   styleUrls: ['./commentaire.component.css']
 })
-export class CommentaireComponent implements OnInit {
+export class CommentaireComponent implements OnInit, OnDestroy {
 
   comsForm: FormGroup;
   coms: Comm[];
-  // id= this.route.snapshot.params['id']
   comsSubscription: Subscription;
+  post: Post;
 
 
 
   constructor(private formBuilder: FormBuilder,
               private commsService: CommsService,
-              private router: Router) { }
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.initForm();
@@ -41,6 +45,7 @@ export class CommentaireComponent implements OnInit {
     this.comsForm = this.formBuilder.group({
       text: ['', Validators.required]
     })
+    
   }
 
   onSaveCom(){
@@ -54,5 +59,8 @@ export class CommentaireComponent implements OnInit {
 
   onBack(){
     this.router.navigate(['/blog']);
+  }
+  ngOnDestroy(){
+    this.comsSubscription.unsubscribe();
   }
 }

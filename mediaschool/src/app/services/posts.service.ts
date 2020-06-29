@@ -12,10 +12,12 @@ import * as firebase from 'firebase';
 export class PostsService {
 
   @Output() posts: Post[] = [];
+
   postsSubject = new Subject<Post[]>();
 
   constructor() {
     this.getPosts();
+    console.log(firebase.database().ref('/blog'));
    }
 
   emitPosts(){
@@ -26,6 +28,8 @@ export class PostsService {
 
   savePosts(){
     firebase.database().ref('/blog').set(this.posts);
+  
+  
   }
 
   getPosts(){

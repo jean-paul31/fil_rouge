@@ -4,7 +4,8 @@ import { Comm } from '../model/com-model';
 import { Subject } from 'rxjs';
 import  DataSnapshot = firebase.database.DataSnapshot;
 import * as firebase from 'firebase';
-import { Post } from '../model/posts.model';
+// import { PostsService } from './posts.service';
+import { Post } from "../model/posts.model";
 
 
 // @Directive()
@@ -15,11 +16,16 @@ import { Post } from '../model/posts.model';
 export class CommsService {
 
   @Output() coms: Comm[];
-  comment:Post;
+  // route: ActivatedRoute  
   comsSubject = new Subject<Comm[]>();
-
+  post: Post;
+  postId = this.post.postId;
+  // postsService: PostsService;
+  
   constructor() {
-    this.getComs();
+    this.getComs(this.postId);
+
+    
    }
 
   emitComs(){
@@ -27,13 +33,13 @@ export class CommsService {
 
   }
 
-  saveComs(){   
-    firebase.database().ref('/blog').set(this.comment.comment);
+  saveComs(id){   
+    firebase.database().ref(`/blog/${id}/comment`).set(this.coms);
 
   }
 
-  getComs(){
-    firebase.database().ref('/comms')
+  getComs(id){
+    firebase.database().ref(`/blog/${id}/comment`)
       .on('value', (data: DataSnapshot)=>{
         this.coms = data.val() ? data.val() : [];
 
@@ -42,10 +48,10 @@ export class CommsService {
     );
   }
 
-  getSingleCom(id: number){
+  getSingleCom(id){
     return new Promise(
       (resolve, reject)=>{
-        firebase.database().ref('/blog/' + id).once('value').then(
+        firebase.database().ref(`/comment/${id}`).once('value').then(
           (data: DataSnapshot)=>{
             resolve(data.val());
           }, (error)=>{
@@ -58,7 +64,7 @@ export class CommsService {
 
   createNewCom(newCom: Comm){
     this.coms.push(newCom);
-    this.saveComs();
+    this.saveComs(this.postId);
     this.emitComs();
   }
 
@@ -71,7 +77,7 @@ export class CommsService {
       }
     );
     this.coms.splice(commIndexToRemove, 1);
-    this.saveComs();
+    this.saveComs(this.postId);
     this.emitComs();
   }
 }

@@ -16,6 +16,7 @@ import { UsersService } from 'src/app/services/users.service';
 export class AddPostComponent implements OnInit {
 
   postForm: FormGroup;
+  Id: Post;
 
 
 
@@ -39,7 +40,9 @@ export class AddPostComponent implements OnInit {
     const title = this.postForm.get('title').value;
     const createdAt = new Date(Date.now());
     const newPost = new Post(texte, title, createdAt.toString());
+    let postId = this.Id.postId
     this.postsService.createNewPost(newPost);
+    postId += 1;
     this.router.navigate(['/blog']);
 
   }
