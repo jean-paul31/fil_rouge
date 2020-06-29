@@ -17,7 +17,7 @@ export class PostsService {
 
   constructor() {
     this.getPosts();
-    console.log(firebase.database().ref('/blog'));
+    
    }
 
   emitPosts(){

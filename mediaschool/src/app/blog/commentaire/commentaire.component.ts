@@ -24,8 +24,7 @@ export class CommentaireComponent implements OnInit, OnDestroy {
 
   constructor(private formBuilder: FormBuilder,
               private commsService: CommsService,
-              private router: Router,
-              private route: ActivatedRoute) { }
+              private router: Router) { }
 
   ngOnInit() {
     this.initForm();
