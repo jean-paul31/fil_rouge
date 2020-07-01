@@ -4,7 +4,8 @@ import { PostsListComponent } from '../posts-list/posts-list.component';
 import { PostsService } from 'src/app/services/posts.service';
 import { Router } from '@angular/router';
 import { Post } from 'src/app/model/posts.model';
-import { Comm } from "../../model/com-model";
+import { Comm } from '../../model/com-model';
+import * as firebase from 'firebase';
 
 
 
@@ -17,7 +18,7 @@ export class AddPostComponent implements OnInit {
 
   postForm: FormGroup;
   post: Post;
-  id:number=0;
+
 
 
 
@@ -27,14 +28,12 @@ export class AddPostComponent implements OnInit {
 
   ngOnInit() {
     this.initForm();
-  
-    
   }
 
   initForm() {
     this.postForm = this.formBuilder.group({
-      title: ['', Validators.required],
-      message: ['', Validators.required],
+      title: [''],
+      message: [''],
     });
   }
 
@@ -42,14 +41,10 @@ export class AddPostComponent implements OnInit {
     const texte = this.postForm.get('message').value;
     const title = this.postForm.get('title').value;
     const createdAt = new Date(Date.now());
-    const coms = new Comm('','')  
-    let postId = this.id;
-    const newPost = new Post(texte, title, createdAt.toString(), postId, coms);
-    
+    const coms = new Comm('', '');
+    const newPost = new Post(title, createdAt.toString(), texte,  coms);
     this.postsService.createNewPost(newPost);
-    postId += 1;
     this.router.navigate(['/blog']);
-
   }
 
   onBack() {

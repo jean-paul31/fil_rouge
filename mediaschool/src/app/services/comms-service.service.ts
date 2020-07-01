@@ -2,12 +2,13 @@ import { Injectable, Output } from '@angular/core';
 import { Comm } from '../model/com-model';
 
 import { Subject } from 'rxjs';
-import  DataSnapshot = firebase.database.DataSnapshot;
+import DataSnapshot = firebase.database.DataSnapshot;
 import * as firebase from 'firebase';
 // import { PostsService } from './posts.service';
-import { Post } from "../model/posts.model";
+import { Post } from '../model/posts.model';
 import { ActivatedRoute } from '@angular/router';
 import { PostsListComponent } from '../blog/posts-list/posts-list.component';
+
 
 
 // @Directive()
@@ -18,47 +19,38 @@ import { PostsListComponent } from '../blog/posts-list/posts-list.component';
 export class CommsService {
 
   @Output() coms: Comm[];
-  postList : PostsListComponent;
+  postList: PostsListComponent;
 
- 
-  // route: ActivatedRoute  
   comsSubject = new Subject<Comm[]>();
-  // postsService: PostsService;
-  
+
   constructor(private route: ActivatedRoute) {
     this.getComs();
-
-    
-   }
-  
-
-  emitComs(){
+  }
+  emitComs() {
     this.comsSubject.next(this.coms);
-
   }
 
-  saveComs(){   
+  saveComs() {
     firebase.database().ref(`/blog/${0}/comment`).set(this.coms);
-
   }
 
-  getComs(){
+  getComs() {
     firebase.database().ref(`/blog/comment`)
-      .on('value', (data: DataSnapshot)=>{
+      .on('value', (data: DataSnapshot) => {
         this.coms = data.val() ? data.val() : [];
 
-       this.emitComs();
+        this.emitComs();
       }
-    );
+      );
   }
 
-  getSingleCom(){
+  getSingleCom() {
     return new Promise(
-      (resolve, reject)=>{
+      (resolve, reject) => {
         firebase.database().ref(`/comment`).once('value').then(
-          (data: DataSnapshot)=>{
+          (data: DataSnapshot) => {
             resolve(data.val());
-          }, (error)=>{
+          }, (error) => {
             reject(error);
           }
         );
@@ -67,15 +59,15 @@ export class CommsService {
   }
 
 
-  createNewCom(newCom: Comm){
+  createNewCom(newCom: Comm) {
     this.coms.push(newCom);
     this.saveComs();
     this.emitComs();
   }
 
-  removeCom(comm: Comm){
+  removeCom(comm: Comm) {
     const commIndexToRemove = this.coms.findIndex(
-      (commEl)=>{
+      (commEl) => {
         if (commEl === comm) {
           return true;
         }

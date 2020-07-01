@@ -23,38 +23,28 @@ export class PostsListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.postsSubscription = this.postsService.postsSubject.subscribe(
-      (article: Post[])=>{
+      (article: Post[]) => {
         this.post = article;
-
       }
     );
-
     this.postsService.emitPosts();
     console.log(this.post);
-    
-    
   }
-
-  onNewpost(){
+  onNewpost() {
     this.router.navigate(['/blog', 'new']);
 
   }
 
 
-  onDeletePost(post: Post){
+  onDeletePost(post: Post) {
     this.postsService.removePost(post);
     this.router.navigate(['/blog']);
   }
-
-  onViewPost(id: number){
+  onViewPost(id: number) {
     this.router.navigate(['/blog', 'view', id]);
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.postsSubscription.unsubscribe();
   }
-
-
-
-
 }

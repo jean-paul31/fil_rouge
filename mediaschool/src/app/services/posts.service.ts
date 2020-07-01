@@ -15,27 +15,23 @@ export class PostsService {
 
   postsSubject = new Subject<Post[]>();
 
-  
-
   constructor() {
     this.getPosts();
-    
    }
 
-  emitPosts(){
+  emitPosts() {
     this.postsSubject.next(this.posts);
 
 
   }
 
-  savePosts(){
+  savePosts() {
     firebase.database().ref('/blog').set(this.posts);
-  
   }
 
-  getPosts(){
+  getPosts() {
     firebase.database().ref('/blog')
-      .on('value', (data: DataSnapshot)=>{
+      .on('value', (data: DataSnapshot) => {
         this.posts = data.val() ? data.val() : [];
 
         this.emitPosts();
@@ -43,13 +39,13 @@ export class PostsService {
     );
   }
 
-  getSinglePost(id: number){
+  getSinglePost(id: number) {
     return new Promise(
-      (resolve, reject)=>{
-        firebase.database().ref('/blog/' + id).once('value').then(
-          (data: DataSnapshot)=>{
+      (resolve, reject) => {
+        firebase.database().ref(`/blog/${id}`).once('value').then(
+          (data: DataSnapshot) => {
             resolve(data.val());
-          }, (error)=>{
+          }, (error) => {
             reject(error);
           }
         );
@@ -57,15 +53,15 @@ export class PostsService {
     );
   }
 
-  createNewPost(newPost: Post){
+  createNewPost(newPost: Post) {
     this.posts.push(newPost);
     this.savePosts();
     this.emitPosts();
   }
 
-  removePost(post: Post){
+  removePost(post: Post) {
     const postIndexToRemove = this.posts.findIndex(
-      (postEl)=>{
+      (postEl) => {
         if (postEl === post) {
           return true;
         }

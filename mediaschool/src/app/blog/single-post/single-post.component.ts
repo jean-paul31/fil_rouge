@@ -1,5 +1,5 @@
-import { Component, OnInit} from '@angular/core';
-import { Post } from "../../model/posts.model";
+import { Component, OnInit } from '@angular/core';
+import { Post } from '../../model/posts.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PostsService } from 'src/app/services/posts.service';
 import { Comm } from 'src/app/model/com-model';
@@ -13,7 +13,7 @@ import { Comm } from 'src/app/model/com-model';
 export class SinglePostComponent implements OnInit {
 
   post: Post;
-  com: Comm = new Comm('', '')
+  com: Comm = new Comm('', '');
 
   constructor(private route: ActivatedRoute,
               private postsService: PostsService,
@@ -21,25 +21,23 @@ export class SinglePostComponent implements OnInit {
               ) { }
 
   ngOnInit() {
-    this.post = new Post('', '', '', this.post.postId, this.com);
-    const id = this.route.snapshot.params['id'];
+    this.post = new Post('', '', '', this.com);
+    const id = this.route.snapshot.params[' id '];
     this.postsService.getSinglePost(+id).then(
-      (post:Post)=>{
+      (post: Post) => {
         this.post = post;
-        console.log(post.title);
-        
       }
     );
-      
-      
   }
-  onDeletePost(post: Post){
+  onDeletePost(post: Post) {
     this.postsService.removePost(post);
     this.router.navigate(['/blog']);
   }
 
-  onBack(){
+  onBack() {
     this.router.navigate(['/blog']);
   }
 
 }
+
+

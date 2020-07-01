@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormsModule } from '@angular/forms';
-import { Comm } from "../../model/com-model";
+import { Comm } from '../../model/com-model';
 import { Router, ActivatedRoute } from '@angular/router';
-import { SinglePostComponent } from "../single-post/single-post.component";
+import { SinglePostComponent } from '../single-post/single-post.component';
 import { CommsService } from '../../services/comms-service.service';
 import { Subscription } from 'rxjs';
 import { Post } from 'src/app/model/posts.model';
@@ -20,8 +20,6 @@ export class CommentaireComponent implements OnInit, OnDestroy {
   comsSubscription: Subscription;
   post: Post;
 
-
-
   constructor(private formBuilder: FormBuilder,
               private commsService: CommsService,
               private router: Router) { }
@@ -29,37 +27,32 @@ export class CommentaireComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.initForm();
     this.comsSubscription = this.commsService.comsSubject.subscribe(
-      (commentaire: Comm[])=>{
+      (commentaire: Comm[]) => {
         this.coms = commentaire;
-
       }
     );
-
     this.commsService.emitComs();
-
-
   }
 
-  initForm(){
+  initForm() {
     this.comsForm = this.formBuilder.group({
-      text: ['', Validators.required]
-    })
-    
+      text: ['']
+    });
   }
 
-  onSaveCom(){
+  onSaveCom() {
     const text = this.comsForm.get('text').value;
     const emmitedAt = new Date(Date.now());
     const newCom = new Comm(text, emmitedAt.toString());
     this.commsService.createNewCom(newCom);
     this.router.navigate(['/blog']);
 
-  };
+  }
 
-  onBack(){
+  onBack() {
     this.router.navigate(['/blog']);
   }
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.comsSubscription.unsubscribe();
   }
 }

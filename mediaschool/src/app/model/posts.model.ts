@@ -1,21 +1,17 @@
-import { Comm } from "./com-model";
+import { Comm } from './com-model';
 
 
-export class Post{
-
-    // com: Comm;
-
+export class Post {
 
     public author: string;
 
     public img: string;
 
-    
+    public postId: number;
 
-    constructor( public texte: string,
-                 public title: string,
+    constructor( public title: string,
                  public createdAt: string,
-                 public postId: number,
-                 public comment: Comm){}
+                 public texte: string,
+                 public comment: Comm) {}
 
 }
