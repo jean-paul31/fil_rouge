@@ -15,6 +15,8 @@ export class PostsService {
 
   postsSubject = new Subject<Post[]>();
 
+  
+
   constructor() {
     this.getPosts();
     
@@ -28,7 +30,6 @@ export class PostsService {
 
   savePosts(){
     firebase.database().ref('/blog').set(this.posts);
-  
   
   }
 

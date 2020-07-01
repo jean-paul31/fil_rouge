@@ -30,6 +30,8 @@ export class PostsListComponent implements OnInit, OnDestroy {
     );
 
     this.postsService.emitPosts();
+    console.log(this.post);
+    
     
   }
 
