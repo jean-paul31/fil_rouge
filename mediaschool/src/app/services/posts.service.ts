@@ -11,7 +11,8 @@ import * as firebase from 'firebase';
 })
 export class PostsService {
 
-   posts: Post[] = [];
+  @Output() posts: Post[] = [];
+  idPost = 0;
 
   postsSubject = new Subject<Post[]>();
 
@@ -26,11 +27,12 @@ export class PostsService {
   }
 
   savePosts() {
-    firebase.database().ref('/blog').set(this.posts);
+    firebase.database().ref(`/blog/${this.idPost}`).set(this.posts);
+    this.idPost += 1;
   }
 
   getPosts() {
-    firebase.database().ref('/blog')
+    firebase.database().ref(`/blog/${this.idPost}`)
       .on('value', (data: DataSnapshot) => {
         this.posts = data.val() ? data.val() : [];
 

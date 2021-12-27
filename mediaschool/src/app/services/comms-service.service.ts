@@ -4,7 +4,7 @@ import { Comm } from '../model/com-model';
 import { Subject } from 'rxjs';
 import DataSnapshot = firebase.database.DataSnapshot;
 import * as firebase from 'firebase';
-// import { PostsService } from './posts.service';
+import { PostsService } from './posts.service';
 import { Post } from '../model/posts.model';
 import { ActivatedRoute } from '@angular/router';
 import { PostsListComponent } from '../blog/posts-list/posts-list.component';
@@ -20,8 +20,8 @@ export class CommsService {
 
   @Output() coms: Comm[];
   postList: PostsListComponent;
-
   comsSubject = new Subject<Comm[]>();
+  post: PostsService;
 
   constructor(private route: ActivatedRoute) {
     this.getComs();
@@ -31,11 +31,11 @@ export class CommsService {
   }
 
   saveComs() {
-    firebase.database().ref(`/blog/${0}/comment`).set(this.coms);
+    firebase.database().ref(`/blog/0/${this.post.postId}/comment`).set(this.coms);
   }
 
   getComs() {
-    firebase.database().ref(`/blog/comment`)
+    firebase.database().ref(`/blog/0/${this.post.postId}/comment`)
       .on('value', (data: DataSnapshot) => {
         this.coms = data.val() ? data.val() : [];
 

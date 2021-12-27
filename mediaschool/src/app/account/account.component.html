@@ -1,12 +1,11 @@
 <div *ngIf="!isClicked">
     <app-profil></app-profil>
 </div>
-<button class="btn btn-secondary" (click)="mod()">MàJ</button>
 <div class="row">
     <div class="col-md-12" [ngModel]>
 
 
-        <h1 for="name">bonjours {{Users.name}} </h1>
+        <h1 for="name">bonjours {{Users.User.name}} </h1>
         <label for="surname"> {{Users.User.surname}} </label>
         <label for="email"> {{Users.User.email}} </label>
         <img style="max-width:400px;" *ngIf="users.photo" [src]="users.photo">

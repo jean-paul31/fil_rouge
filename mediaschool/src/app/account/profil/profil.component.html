@@ -14,16 +14,13 @@
                 <label for="email">votre adresse mail: </label>
                 <input type="text" name="email" id="email" class="form-control" formControlName="email">
             </div>
+            <br>
             <h4>Ajouter une photo</h4>
+            <br>
             <input type="file" (change)="detectFiles($event)" accept="photo/*">
             <p class="text-success" *ngIf="fileUploaded">Fichier chargé !</p>
-            <div>
-                <button class="btn btn-success" [disabled]="userForm.invalid || fileIsUploading" type="submit">Enregistrer
+            <button class="btn btn-success" [disabled]="userForm.invalid || fileIsUploading" type="submit">Enregistrer
       </button>
-                <button class="btn btn-secondary" (click)="onDeleteUser(user)">
-        effacer
-      </button>
-            </div>
         </form>
     </div>
 </div>
