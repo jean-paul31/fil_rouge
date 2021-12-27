@@ -26,7 +26,7 @@ export class SinglePostComponent implements OnInit {
     
     this.post = new Post('', '', '');
     const id = this.route.snapshot.params[' id '];
-    this.postsService.getSinglePost(+id).then(
+    this.postsService.getSinglePost(id).then(
       (post: Post) => {
         this.post = post;
       }

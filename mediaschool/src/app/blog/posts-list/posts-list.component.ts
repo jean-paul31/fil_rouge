@@ -44,7 +44,7 @@ export class PostsListComponent implements OnInit, OnDestroy {
     this.router.navigate(['/blog']);
   }
   onViewPost(id: number) {
-    this.router.navigate(['/blog', 'view', id]);
+    this.router.navigate(['/blog', 'article', id]);
   }
 
   ngOnDestroy() {

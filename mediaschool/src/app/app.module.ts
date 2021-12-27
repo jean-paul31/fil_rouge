@@ -30,7 +30,7 @@ const appRoutes: Routes = [
   {path: 'blog', canActivate:[AuthGuardService], component: BlogComponent},
   {path: 'blog/list', canActivate:[AuthGuardService], component: PostsListComponent},
   {path: 'blog/new', canActivate:[AuthGuardService], component: AddPostComponent },
-  {path: 'blog/view/:id', canActivate:[AuthGuardService], component: SinglePostComponent},
+  {path: 'blog/article/:id', canActivate:[AuthGuardService], component: SinglePostComponent},
   {path: 'account', canActivate:[AuthGuardService], component: AccountComponent},
   {path: 'add-child', canActivate:[AuthGuardService], component: AddChildComponent},
   {path: 'canteen', canActivate:[AuthGuardService], component: CanteenComponent},
