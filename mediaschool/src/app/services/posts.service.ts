@@ -12,8 +12,9 @@ import * as firebase from 'firebase';
 export class PostsService {
 
   @Output() posts: Post[] = [];
-  idPost = 0;
-
+  idPost= "Articles";
+  idPosts=0;
+  postId = [];
   postsSubject = new Subject<Post[]>();
 
   constructor() {
@@ -28,7 +29,8 @@ export class PostsService {
 
   savePosts() {
     firebase.database().ref(`/blog/${this.idPost}`).set(this.posts);
-    this.idPost += 1;
+    this.idPosts += 1;
+    this.postId.push(this.idPosts);
   }
 
   getPosts() {
@@ -44,7 +46,7 @@ export class PostsService {
   getSinglePost(id: number) {
     return new Promise(
       (resolve, reject) => {
-        firebase.database().ref(`/blog/${id}`).once('value').then(
+        firebase.database().ref(`/blog/Articles/${this.postId}/${this.postId}`).once('value').then(
           (data: DataSnapshot) => {
             resolve(data.val());
           }, (error) => {

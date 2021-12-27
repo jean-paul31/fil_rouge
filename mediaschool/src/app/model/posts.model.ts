@@ -11,7 +11,6 @@ export class Post {
 
     constructor( public title: string,
                  public createdAt: string,
-                 public texte: string,
-                 public comment: Comm) {}
+                 public texte: string) {}
 
 }

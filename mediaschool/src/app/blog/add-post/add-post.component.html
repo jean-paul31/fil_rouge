@@ -1,21 +1,21 @@
 <div class="row">
-  <h1>créez votre message</h1>
-  <div class="col-md-12">
-    <form class="group-form" [formGroup]="postForm" (ngSubmit)="onSavePost()">
+    <h1>créez votre message</h1>
+    <div class="col-md-12">
+        <form class="group-form" [formGroup]="postForm" (ngSubmit)="onSavePost()">
 
-      <div>
-        <label for="title"><strong>TITRE:</strong></label>
-        <input type="text" id="title" formControlName="title" class="form-control">
-      </div>
-<br>
-      <div>
-        <label for="message"><strong>VOTRE MESSAGE :</strong></label>
-        <textarea formControlName="message" id="message" class="form-control" rows="20" cols="20"></textarea>
-        <br><br>
-        <button type="submit" class="btn btn-primary">poster</button>
+            <div>
+                <label for="title"><strong>TITRE:</strong></label>
+                <input type="text" id="title" formControlName="title" class="form-control">
+            </div>
+            <br>
+            <div>
+                <label for="message"><strong>VOTRE MESSAGE :</strong></label>
+                <textarea formControlName="message" id="message" class="form-control" rows="20" cols="20"></textarea>
+                <br><br>
+                <button type="button" class="btn btn-primary" (click)="onSavePost()">poster</button>
 
-        <button class="btn btn-secondary " (click)="onBack()">Retour</button>
-      </div>
-    </form>
-  </div>
+                <button class="btn btn-secondary " (click)="onBack()">Retour</button>
+            </div>
+        </form>
+    </div>
 </div>

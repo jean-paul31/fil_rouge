@@ -41,9 +41,11 @@ export class AddPostComponent implements OnInit {
     const texte = this.postForm.get('message').value;
     const title = this.postForm.get('title').value;
     const createdAt = new Date(Date.now());
-    const coms = new Comm('', '');
-    const newPost = new Post(title, createdAt.toString(), texte,  coms);
+    const newPost = new Post(title, createdAt.toString(), texte);
+    console.log("un test");
+    
     this.postsService.createNewPost(newPost);
+    console.log("un autre test");
     this.router.navigate(['/blog']);
   }
 

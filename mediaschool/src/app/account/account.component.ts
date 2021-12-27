@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs';
 })
 export class AccountComponent implements OnInit, OnDestroy   {
 
-  users: User[];
+  users: User;
   usersSubscription: Subscription;
   isClicked = false;
 
@@ -26,9 +26,9 @@ export class AccountComponent implements OnInit, OnDestroy   {
 
   ngOnInit() {
     this.usersSubscription = this.usersService.usersSubject.subscribe(
-      (users: User[]) => {
+      (users) => {
 
-        this.users = users;
+        users = users;
         console.log(this.users);
 
       }

@@ -31,11 +31,11 @@ export class CommsService {
   }
 
   saveComs() {
-    firebase.database().ref(`/blog/0/${this.post.idPost}/comment`).set(this.coms);
+    firebase.database().ref(`/blog/${this.post.idPosts}/comment`).set(this.coms);
   }
 
   getComs() {
-    firebase.database().ref(`/blog/0/${this.post.idPost}/comment`)
+    firebase.database().ref(`/blog/Articles/${this.post.idPosts}/comment`)
       .on('value', (data: DataSnapshot) => {
         this.coms = data.val() ? data.val() : [];
 
@@ -43,21 +43,6 @@ export class CommsService {
       }
       );
   }
-
-  getSingleCom() {
-    return new Promise(
-      (resolve, reject) => {
-        firebase.database().ref(`/comment`).once('value').then(
-          (data: DataSnapshot) => {
-            resolve(data.val());
-          }, (error) => {
-            reject(error);
-          }
-        );
-      }
-    );
-  }
-
 
   createNewCom(newCom: Comm) {
     this.coms.push(newCom);

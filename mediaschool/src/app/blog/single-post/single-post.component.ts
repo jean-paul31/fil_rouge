@@ -14,6 +14,7 @@ export class SinglePostComponent implements OnInit {
 
   post: Post;
   com: Comm = new Comm('', '');
+  postId: PostsService;
 
   constructor(private route: ActivatedRoute,
               private postsService: PostsService,
@@ -21,7 +22,7 @@ export class SinglePostComponent implements OnInit {
               ) { }
 
   ngOnInit() {
-    this.post = new Post('', '', '', this.com);
+    this.post = new Post('', '', '');
     const id = this.route.snapshot.params[' id '];
     this.postsService.getSinglePost(+id).then(
       (post: Post) => {
