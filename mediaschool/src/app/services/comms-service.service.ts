@@ -31,11 +31,11 @@ export class CommsService {
   }
 
   saveComs() {
-    firebase.database().ref(`/blog/0/${this.post.postId}/comment`).set(this.coms);
+    firebase.database().ref(`/blog/0/${this.post.idPost}/comment`).set(this.coms);
   }
 
   getComs() {
-    firebase.database().ref(`/blog/0/${this.post.postId}/comment`)
+    firebase.database().ref(`/blog/0/${this.post.idPost}/comment`)
       .on('value', (data: DataSnapshot) => {
         this.coms = data.val() ? data.val() : [];
 
