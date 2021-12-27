@@ -13,7 +13,7 @@ export class PostsService {
 
   @Output() posts: Post[] = [];
   idPost= "Articles";
-  idPosts=0;
+  idPosts:any;
   postId = [];
   postsSubject = new Subject<Post[]>();
 
@@ -34,6 +34,8 @@ export class PostsService {
   }
 
   getPosts() {
+    console.log(this.postId);
+    
     firebase.database().ref(`/blog/${this.idPost}`)
       .on('value', (data: DataSnapshot) => {
         this.posts = data.val() ? data.val() : [];
@@ -46,7 +48,7 @@ export class PostsService {
   getSinglePost(id: number) {
     return new Promise(
       (resolve, reject) => {
-        firebase.database().ref(`/blog/Articles/${this.postId}/${this.postId}`).once('value').then(
+        firebase.database().ref(`/blog/Articles/${this.idPosts}`).once('value').then(
           (data: DataSnapshot) => {
             resolve(data.val());
           }, (error) => {
