@@ -1,15 +1,15 @@
 <div class="row">
-  <div class="col-xs-12">
-    <h1> {{ post.title }} </h1>
-    <p> {{ post.createdAt | date: 'short'}}</p>
-    <p> {{ post.texte }} </p>
-    <button class="btn btn-secondary" (click)="onDeletePost(post)">
+    <div class="col-xs-12">
+        <h1> {{ single.title }} </h1>
+        <p> {{ single.createdAt | date: 'short'}}</p>
+        <p> {{ single.texte }} </p>
+        <button class="btn btn-secondary" (click)="onDeletePost(post)">
       effacer
     </button>
-    <div>
-      <app-commentaire></app-commentaire>
+        <div>
+            <app-commentaire></app-commentaire>
+        </div>
     </div>
-  </div>
-  <br>
-  <button class="btn btn-secondary" (click)="onBack()">Retour</button>
+    <br>
+    <button class="btn btn-secondary" (click)="onBack()">Retour</button>
 </div>

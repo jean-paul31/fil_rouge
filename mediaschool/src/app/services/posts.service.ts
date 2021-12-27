@@ -11,7 +11,7 @@ import * as firebase from 'firebase';
 })
 export class PostsService {
 
-  @Output() posts: Post[] = [];
+   posts: Post[] = [];
 
   postsSubject = new Subject<Post[]>();
 
@@ -48,9 +48,9 @@ export class PostsService {
           }, (error) => {
             reject(error);
           }
-        );
-      }
-    );
+        );       
+      }     
+    );    
   }
 
   createNewPost(newPost: Post) {

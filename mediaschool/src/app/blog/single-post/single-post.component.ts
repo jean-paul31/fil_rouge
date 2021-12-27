@@ -28,6 +28,7 @@ export class SinglePostComponent implements OnInit {
         this.post = post;
       }
     );
+    
   }
   onDeletePost(post: Post) {
     this.postsService.removePost(post);

@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 
 
 
+
 @Component({
   selector: 'app-posts-list',
   templateUrl: './posts-list.component.html',
@@ -19,7 +20,8 @@ export class PostsListComponent implements OnInit, OnDestroy {
 
 
   constructor(private postsService: PostsService,
-              private router: Router) { }
+              private router: Router
+              ) { }
 
   ngOnInit() {
     this.postsSubscription = this.postsService.postsSubject.subscribe(
@@ -28,7 +30,7 @@ export class PostsListComponent implements OnInit, OnDestroy {
       }
     );
     this.postsService.emitPosts();
-    console.log(this.post);
+    
   }
   onNewpost() {
     this.router.navigate(['/blog', 'new']);

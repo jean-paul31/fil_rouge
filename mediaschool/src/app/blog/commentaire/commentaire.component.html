@@ -1,20 +1,20 @@
 <div class="row">
-  <div class="col-md-12">
-    <div class="row" *ngIf="!coms">
-      <ul>
-        <li class="col-xs-12 coms" *ngFor="let sglcoms of coms">
-          <span> {{ sglcoms.emmitedAt | date: 'short'}}</span>
-          <p> {{sglcoms.text}} </p>
-        </li>
-      </ul>
-    </div>
-    <form class="group-form" [formGroup]="comsForm" (ngSubmit)="onSaveCom()">
-      <div class="input-group">
-        <textarea formControlName="text" id="text" class="form-control" rows="1" cols="5"></textarea>
-        <span class="input-group-btn">
+    <div class="col-md-12">
+        <div class="row" *ngIf="!coms">
+            <ul>
+                <li class="col-xs-12 coms" *ngFor="let sglcoms of coms">
+                    <span> {{ sglcoms.emmitedAt | date: 'short'}}</span>
+                    <p> {{sglcoms.text}} </p>
+                </li>
+            </ul>
+        </div>
+        <form class="group-form" [formGroup]="comsForm" (ngSubmit)="onSaveCom()">
+            <div class="input-group">
+                <textarea formControlName="text" id="text" class="form-control" rows="1" cols="5"></textarea>
+                <span class="input-group-btn">
           <button type="submit" class="btn btn-secondary">poster</button>
         </span>
-      </div>
-    </form>
-  </div>
+            </div>
+        </form>
+    </div>
 </div>
