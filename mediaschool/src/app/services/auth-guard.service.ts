@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import {AngularFirestore} from "@angular/fire/firestore";
+import * as firebase from 'firebase';
 
 
 @Injectable({
   providedIn: 'root'
 })
-private firbase: AngularFirestore;
 export class AuthGuardService implements CanActivate {
 
-  constructor(private router: Router, private firbase: AngularFirestore;) { }
+  constructor(private router: Router) { }
 
   canActivate(): Observable<boolean> | Promise<boolean> {
     return new Promise(
