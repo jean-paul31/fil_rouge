@@ -22,6 +22,9 @@ import { SinglePostComponent } from './blog/single-post/single-post.component';
 import { AddPostComponent } from './blog/add-post/add-post.component';
 import { ProfilComponent } from './account/profil/profil.component';
 import { CommentaireComponent } from './blog/commentaire/commentaire.component';
+import {AngularFireModule} from "@angular/fire";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
+import {environment} from "../environments/environment";
 
 const appRoutes: Routes = [
   {path: 'auth/signup', component: SignupComponent},
@@ -63,7 +66,9 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

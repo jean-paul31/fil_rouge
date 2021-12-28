@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "mediaschool-28f25": {
+      "hosting": {
+        "mediaschool": [
+          "mediaschool-28f25"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "mediaschool-28f25"
+  }
+}
