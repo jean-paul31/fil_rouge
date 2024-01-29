@@ -6,6 +6,7 @@ import * as firebase from 'firebase';
 
 
 // @Directive()
+@Directive()
 @Injectable({
   providedIn: 'root'
 })

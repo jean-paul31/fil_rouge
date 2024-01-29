@@ -1,4 +1,4 @@
-import { Injectable, Output } from '@angular/core';
+import { Injectable, Output, Directive } from '@angular/core';
 import { Comm } from '../model/com-model';
 
 import { Subject } from 'rxjs';
@@ -12,6 +12,7 @@ import { PostsListComponent } from '../blog/posts-list/posts-list.component';
 
 
 // @Directive()
+@Directive()
 @Injectable({
   providedIn: 'root'
 })
