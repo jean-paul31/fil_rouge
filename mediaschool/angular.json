@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "mediaschool:build"
+            "buildTarget": "mediaschool:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "mediaschool:build:production"
+              "buildTarget": "mediaschool:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "mediaschool:build"
+            "buildTarget": "mediaschool:build"
           }
         },
         "test": {
@@ -110,7 +110,7 @@
           "options": {
             "prerender": false,
             "ssr": false,
-            "browserTarget": "mediaschool:build:production",
+            "buildTarget": "mediaschool:build:production",
             "firebaseProject": "mediaschool-28f25",
             "firebaseHostingSite": "mediaschool-28f25"
           }
